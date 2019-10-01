@@ -10,6 +10,14 @@ function loadAutoCompleteAPI(params) {
 
   script.type = 'text/javascript';
 
+  script.id = 'GoogleapisMapScript'
+
+  var currentScript = document.getElementById(script.id);
+  if (currentScript) {
+      console.warn('Google maps API script is already loaded');
+      return;
+  }
+
   script.src = urlBuilder({
     base: 'https://maps.googleapis.com/maps/api/js',
     libraries: params.libraries || [],
